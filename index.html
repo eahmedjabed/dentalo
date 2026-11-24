@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Care Dental UI | Family Dental Care in the USA</title>
+<meta name="description" content="Gentle, family-friendly dental care. Book an appointment online, by phone, or on WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root { --teal:#0E7C86; --teal-dark:#0a5f67; --teal-soft:#e4f3f4; --navy:#14324a; --muted:#5a6b7a; --bg:#f5fafb; --card:#ffffff; --line:#dfe9ec; --radius:20px; }
+* { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; scroll-padding-top:90px; }
+body { font-family:'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; color:var(--navy); background:#fff; line-height:1.6; overflow-x:hidden; }
+a { color:inherit; text-decoration:none; }
+img, svg { max-width:100%; display:block; }
+.container { width:min(1180px, calc(100% - 2 * clamp(20px, 5vw, 60px))); margin:0 auto; }
+h1, h2, h3 { letter-spacing:-.02em; line-height:1.15; }
+.btn { display:inline-flex; align-items:center; gap:10px; padding:14px 26px; border-radius:999px; background:var(--teal); color:#fff; font-weight:600; font-size:16px; border:0; cursor:pointer; box-shadow:0 10px 24px rgba(14,124,134,.25); transition:transform .2s, background .2s; }
+.btn:hover { background:var(--teal-dark); transform:translateY(-2px); }
+.btn.small { padding:10px 18px; font-size:14px; box-shadow:none; }
+.btn.ghost { background:#fff; color:var(--teal); border:1.5px solid var(--teal); box-shadow:none; }
+.kicker { display:inline-block; color:var(--teal); font-weight:700; font-size:13px; letter-spacing:.14em; text-transform:uppercase; margin-bottom:12px; }
+
+/* Header */
+header.nav { position:sticky; top:0; z-index:50; background:rgba(255,255,255,.92); backdrop-filter:blur(12px); border-bottom:1px solid var(--line); }
+.nav-in { display:flex; align-items:center; justify-content:space-between; gap:20px; height:76px; }
+.brand { display:flex; align-items:center; gap:10px; font-weight:800; font-size:20px; color:var(--navy); }
+.brand .mark { width:38px; height:38px; border-radius:12px; background:var(--teal); display:grid; place-items:center; }
+.links { display:flex; align-items:center; gap:6px; list-style:none; }
+.links a { display:block; padding:9px 14px; border-radius:999px; color:var(--muted); font-weight:500; font-size:15px; transition:all .2s; }
+.links a:hover { color:var(--navy); background:var(--teal-soft); }
+.links a.current { color:var(--teal); background:var(--teal-soft); }
+.menu-btn { display:none; background:none; border:0; cursor:pointer; padding:8px; color:var(--navy); }
+
+/* Hero */
+.hero { position:relative; background:linear-gradient(180deg, #eef8f9 0%, #ffffff 100%); overflow:hidden; }
+.hero-grid { display:grid; grid-template-columns:1.05fr .95fr; gap:40px; align-items:center; padding:70px 0 40px; }
+.hero h1 { font-size:clamp(40px, 5.6vw, 66px); font-weight:800; color:var(--navy); }
+.hero h1 .accent { color:var(--teal); display:block; }
+.hero p.sub { color:var(--muted); font-size:19px; max-width:520px; margin:22px 0 32px; }
+.chips { display:flex; flex-wrap:wrap; gap:12px; margin-top:44px; }
+.chip { display:flex; align-items:center; gap:8px; padding:12px 18px; background:rgba(255,255,255,.9); border:1px solid var(--line); border-radius:999px; font-size:14px; font-weight:600; color:var(--navy); box-shadow:0 6px 18px rgba(20,50,74,.06); }
+.visual { position:relative; height:480px; }
+.visual .blob { position:absolute; inset:30px 20px 10px 30px; border-radius:48% 52% 45% 55% / 52% 46% 54% 48%; background:linear-gradient(160deg, #bfe6ea, #0E7C86); opacity:.9; }
+.visual .tooth { position:absolute; left:50%; top:50%; transform:translate(-50%, -50%); width:230px; filter:drop-shadow(0 25px 40px rgba(10,95,103,.35)); }
+.visual .card-float { position:absolute; background:#fff; border-radius:18px; padding:16px 18px; box-shadow:0 18px 40px rgba(20,50,74,.14); }
+.visual .card-float strong { display:block; font-size:15px; }
+.visual .card-float span { font-size:13px; color:var(--muted); }
+.cf1 { top:40px; left:0; }
+.cf2 { bottom:30px; right:0; }
+
+/* Services */
+.services { padding:80px 0 60px; }
+.sec-head { text-align:center; max-width:640px; margin:0 auto 44px; }
+.sec-head h2 { font-size:clamp(30px, 3.8vw, 44px); font-weight:800; }
+.sec-head p { color:var(--muted); margin-top:14px; }
+.tabs { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; border-bottom:1px solid var(--line); padding-bottom:0; }
+.tab { display:flex; align-items:center; gap:8px; background:none; border:0; border-bottom:3px solid transparent; padding:14px 16px 16px; color:var(--muted); font:inherit; font-weight:600; font-size:15px; cursor:pointer; transition:all .2s; }
+.tab:hover { color:var(--navy); }
+.tab.active { color:var(--teal); border-bottom-color:var(--teal); }
+.ti { font-size:18px; }
+.panel { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; padding:48px 0 0; }
+.panel h3 { font-size:clamp(26px, 3vw, 34px); font-weight:800; margin-bottom:14px; }
+.panel p { color:var(--muted); font-size:17px; margin-bottom:26px; }
+.panel-art { background:linear-gradient(160deg, var(--teal-soft), #fff); border:1px solid var(--line); border-radius:var(--radius); padding:40px; min-height:260px; display:grid; place-items:center; }
+.panel-art .big { font-size:96px; }
+
+/* About */
+.about { padding:80px 0; background:var(--bg); }
+.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+.about h2 { font-size:clamp(30px, 3.6vw, 42px); font-weight:800; margin-bottom:18px; }
+.about h2 em { color:var(--teal); font-style:normal; }
+.about p { color:var(--muted); font-size:17px; margin-bottom:18px; }
+.about ul { list-style:none; margin:24px 0 30px; display:grid; gap:12px; }
+.about li { display:flex; gap:12px; align-items:flex-start; font-weight:500; }
+.about li::before { content:"✓"; flex:0 0 26px; height:26px; border-radius:50%; background:var(--teal); color:#fff; display:grid; place-items:center; font-size:14px; font-weight:700; }
+.about-art { background:#fff; border-radius:var(--radius); border:1px solid var(--line); padding:34px; box-shadow:0 20px 50px rgba(20,50,74,.08); }
+.about-art svg { width:100%; height:auto; }
+
+/* Team */
+.team { padding:80px 0; }
+.team-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:24px; }
+.team-card { background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:30px; transition:transform .25s, box-shadow .25s; }
+.team-card:hover { transform:translateY(-6px); box-shadow:0 22px 44px rgba(20,50,74,.12); }
+.team-card .avatar { width:64px; height:64px; border-radius:18px; background:var(--teal-soft); display:grid; place-items:center; font-size:30px; margin-bottom:18px; }
+.team-card h3 { font-size:20px; margin-bottom:8px; }
+.team-card p { color:var(--muted); font-size:15px; }
+
+/* Booking and contact */
+.book { padding:80px 0; background:linear-gradient(160deg, var(--teal) 0%, var(--teal-dark) 100%); color:#fff; }
+.book-grid { display:grid; grid-template-columns:1fr 1.1fr; gap:50px; align-items:start; }
+.book h2 { font-size:clamp(30px, 3.6vw, 42px); font-weight:800; margin-bottom:16px; }
+.book p { opacity:.92; font-size:17px; margin-bottom:26px; }
+.contact-list { display:grid; gap:14px; margin-top:10px; }
+.contact-list a { display:flex; align-items:center; gap:12px; background:rgba(255,255,255,.12); border-radius:16px; padding:16px 18px; font-weight:600; }
+.contact-list a:hover { background:rgba(255,255,255,.2); }
+form.bform { background:#fff; color:var(--navy); border-radius:24px; padding:34px; box-shadow:0 30px 60px rgba(0,0,0,.18); display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.field { display:flex; flex-direction:column; gap:7px; }
+.field.full { grid-column:1 / -1; }
+.field label { font-size:13px; font-weight:600; color:var(--muted); }
+.field input, .field select, .field textarea { font:inherit; font-size:15px; padding:13px 14px; border-radius:12px; border:1px solid var(--line); background:#fbfdfd; color:var(--navy); }
+.field input:focus, .field select:focus, .field textarea:focus { outline:none; border-color:var(--teal); box-shadow:0 0 0 4px rgba(14,124,134,.15); }
+.field textarea { min-height:90px; resize:vertical; }
+form.bform .btn { grid-column:1 / -1; justify-content:center; width:100%; }
+.hint { grid-column:1 / -1; font-size:13px; color:var(--muted); text-align:center; }
+
+/* Footer */
+footer { background:#0c1f2e; color:#c8d6de; padding:50px 0 28px; }
+.foot-grid { display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:30px; }
+footer h4 { color:#fff; font-size:16px; margin-bottom:14px; }
+footer a:hover { color:#fff; }
+footer .line { margin:8px 0; }
+footer .bottom { margin-top:36px; padding-top:20px; border-top:1px solid rgba(255,255,255,.12); font-size:14px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+footer .admin-btn { display:inline-block; padding:8px 16px; border:1px solid rgba(255,255,255,.4); border-radius:999px; color:#fff; font-size:13px; }
+footer .admin-btn:hover { background:#fff; color:var(--navy); }
+
+.wa { position:fixed; right:20px; bottom:20px; z-index:60; width:58px; height:58px; border-radius:50%; background:#25D366; display:grid; place-items:center; box-shadow:0 10px 28px rgba(37,211,102,.45); }
+.wa svg { width:30px; height:30px; }
+
+.reveal { opacity:0; transform:translateY(30px); transition:opacity .8s ease, transform .8s ease; }
+.reveal.visible { opacity:1; transform:none; }
+
+@media (max-width:980px) {
+  .hero-grid, .panel, .about-grid, .book-grid, .foot-grid { grid-template-columns:1fr; }
+  .visual { height:380px; }
+  .team-grid { grid-template-columns:1fr 1fr; }
+  .menu-btn { display:block; }
+  .links { position:absolute; top:76px; left:0; right:0; flex-direction:column; align-items:stretch; background:#fff; padding:12px 6%; border-bottom:1px solid var(--line); display:none; box-shadow:0 20px 40px rgba(20,50,74,.1); }
+  .links.open { display:flex; }
+  .links a { padding:14px 12px; }
+  .nav-cta { display:none; }
+}
+@media (max-width:600px) {
+  .team-grid { grid-template-columns:1fr; }
+  form.bform { grid-template-columns:1fr; padding:22px; }
+  .chips .chip { font-size:13px; }
+  .visual { height:320px; }
+  .cf1, .cf2 { display:none; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation:none !important; transition:none !important; } .reveal { opacity:1; transform:none; } }
+</style>
+</head>
+<body>
+
+<header class="nav" id="header">
+  <div class="container nav-in">
+    <a class="brand" href="#home" id="brandLink"><span class="mark"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M12 2c-2.2 0-3.6.8-4.8.8S5.2 2 3.6 3.2C2 4.5 1.8 7 2.3 9.4c.5 2.4 1.4 4.5 1.6 7.2.2 2.6.4 5.4 2 5.4 1.4 0 1.7-2.4 2.3-4.6.5-1.8 1.1-2.9 2.2-2.9s1.7 1.1 2.2 2.9c.6 2.2.9 4.6 2.3 4.6 1.6 0 1.8-2.8 2-5.4.2-2.7 1.1-4.8 1.6-7.2.5-2.4.3-4.9-1.3-6.2-1.6-1.2-3.1-.8-4.4-.8S14.2 2 12 2z"/></svg></span><span id="brandName">Care Dental UI</span></a>
+    <ul class="links" id="links">
+      <li><a href="#home" class="current">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#team">Our Team</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="btn small nav-cta" href="#book">Book Appointment</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" type="button"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <h1><span id="heroTitle">Family-Friendly</span> <span class="accent" id="heroAccent">Dental Care</span></h1>
+      <p class="sub" id="heroSub">Gentle care for every smile. Advanced technology for a healthier tomorrow.</p>
+      <a class="btn" href="#book">Book an Appointment <span aria-hidden="true">→</span></a>
+      <div class="chips">
+        <span class="chip">🙂 Gentle Care</span>
+        <span class="chip">🔬 Modern Technology</span>
+        <span class="chip">👥 Caring Team</span>
+        <span class="chip">💳 Clear Estimates</span>
+      </div>
+    </div>
+    <div class="visual" aria-hidden="true">
+      <div class="blob"></div>
+      <svg class="tooth" viewBox="0 0 120 130"><path d="M60 6c-12 0-18 6-28 6S12 6 6 14C0 22 2 36 6 50c4 14 8 26 10 42 2 16 4 30 12 30 8 0 10-14 14-26 4-10 8-14 18-14s14 4 18 14c4 12 6 26 14 26 8 0 10-14 12-30 2-16 6-28 10-42 4-14 6-28 0-36-6-8-14-8-22-8S72 6 60 6z" fill="#fff"/></svg>
+      <div class="card-float cf1"><strong>Book an appointment</strong><span>Online, by phone or WhatsApp</span></div>
+      <div class="card-float cf2"><strong>Family-friendly</strong><span>Care for every age</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="kicker">Our services</span>
+      <h2>Care for every part of your smile</h2>
+      <p>Choose a service to see what it includes.</p>
+    </div>
+    <div class="tabs" id="serviceTabs" role="tablist"><button class="tab active" type="button" data-i="0" data-title="Smile Assessment" data-icon="🙂" data-text="A complete check of your teeth, gums and bite, with a clear plan explained before any treatment starts."><span class="ti">🙂</span>Smile Assessment</button><button class="tab" type="button" data-i="1" data-title="Preventive Care" data-icon="🛡️" data-text="Regular cleanings, check-ups and advice that help keep your teeth and gums healthy for the long term."><span class="ti">🛡️</span>Preventive Care</button><button class="tab" type="button" data-i="2" data-title="Cosmetic Dentistry" data-icon="✨" data-text="Gentle options to brighten and refine your smile, planned around what you want to achieve."><span class="ti">✨</span>Cosmetic Dentistry</button><button class="tab" type="button" data-i="3" data-title="Restorative Treatment" data-icon="🔧" data-text="Repairs such as fillings, crowns and bridges to restore strength and function to damaged teeth."><span class="ti">🔧</span>Restorative Treatment</button><button class="tab" type="button" data-i="4" data-title="Dental Implants" data-icon="🦷" data-text="Permanent replacements for missing teeth, assessed and planned carefully with your dentist."><span class="ti">🦷</span>Dental Implants</button><button class="tab" type="button" data-i="5" data-title="Family Dentistry" data-icon="👪" data-text="Care for every age in one friendly practice, so the whole family can visit in one place."><span class="ti">👪</span>Family Dentistry</button></div>
+    <div class="panel reveal" id="servicePanel">
+      <div>
+        <h3 id="svcTitle">Smile Assessment</h3>
+        <p id="svcText">A complete check of your teeth, gums and bite, with a clear plan explained before any treatment starts.</p>
+        <a class="btn" id="svcBook" href="#book">Book this service <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="panel-art"><span class="big" id="svcIcon">🙂</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="reveal">
+      <span class="kicker">About Us</span>
+      <h2>We deliver personalized dental care with <em>compassion</em> and advanced technology.</h2>
+      <p>Our mission is to provide exceptional dental care in a comfortable environment, using modern technology and a personal approach for every patient.</p>
+      <ul>
+        <li>Clear explanations before any treatment</li>
+        <li>A calm, comfortable visit for children and adults</li>
+        <li>Modern equipment for accurate care</li>
+      </ul>
+      <a class="btn ghost" href="#book">Book a visit</a>
+    </div>
+    <div class="about-art reveal">
+      <svg viewBox="0 0 400 300" aria-hidden="true">
+        <rect x="10" y="10" width="380" height="280" rx="22" fill="#e4f3f4"/>
+        <rect x="40" y="200" width="320" height="18" rx="9" fill="#0E7C86" opacity=".25"/>
+        <rect x="70" y="70" width="260" height="130" rx="18" fill="#fff"/>
+        <circle cx="130" cy="135" r="34" fill="#0E7C86" opacity=".18"/>
+        <path d="M130 105c-7 0-10 3-16 3s-8-3-12-3c-6 0-8 4-8 9 0 9 2 15 4 24 1 6 2 11 4 11 3 0 3-6 5-10 2-4 4-6 7-6s5 2 7 6c2 4 2 10 5 10 2 0 3-5 4-11 2-9 4-15 4-24 0-5-2-9-8-9z" fill="#0E7C86"/>
+        <rect x="170" y="112" width="130" height="10" rx="5" fill="#dfe9ec"/>
+        <rect x="170" y="130" width="100" height="10" rx="5" fill="#dfe9ec"/>
+        <rect x="170" y="148" width="115" height="10" rx="5" fill="#dfe9ec"/>
+        <circle cx="330" cy="70" r="22" fill="#0E7C86"/>
+        <path d="M322 70l6 6 11-12" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="team" id="team">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="kicker">Our team</span>
+      <h2>Friendly people you can trust</h2>
+      <p>Our dentists and team work together to make every visit comfortable and clear.</p>
+    </div>
+    <div class="team-grid">
+      <article class="team-card reveal"><div class="avatar">🩺</div><h3>Dentists</h3><p>Experienced clinicians who explain each step and answer your questions.</p></article>
+      <article class="team-card reveal"><div class="avatar">🧑‍⚕️</div><h3>Dental Hygiene</h3><p>Gentle cleanings and check-ups focused on keeping your teeth and gums healthy.</p></article>
+      <article class="team-card reveal"><div class="avatar">🤝</div><h3>Front Desk</h3><p>Friendly help with booking, questions and planning visits for the whole family.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="book">
+  <div class="container book-grid">
+    <div class="reveal" id="contact">
+      <span class="kicker" style="color:#bfe9ea">Book &amp; contact</span>
+      <h2>Book your appointment in a few moments</h2>
+      <p>Send us your details and we will confirm your appointment. You can also call or message us directly.</p>
+      <div class="contact-list">
+        <a href="tel:+12125550186" id="telLink">📞 <span id="phoneText">+1 (212) 555-0186</span></a>
+        <a href="https://wa.me/12125550186" id="waLink" target="_blank" rel="noopener">💬 WhatsApp us</a>
+        <a href="mailto:care.dental@gmail.com" id="mailLink">✉️ <span id="emailText">care.dental@gmail.com</span></a>
+      </div>
+    </div>
+    <form class="bform reveal" id="bookForm" autocomplete="off">
+      <div class="field"><label for="fName">Full name</label><input id="fName" required placeholder="Your name"></div>
+      <div class="field"><label for="fPhone">Phone number</label><input id="fPhone" required inputmode="tel" placeholder="+1 (212) 555-0186"></div>
+      <div class="field full"><label for="fEmail">Email (optional)</label><input id="fEmail" type="email" placeholder="you@example.com"></div>
+      <div class="field full"><label for="fService">Service</label><select id="fService"><option>Smile Assessment</option><option>Preventive Care</option><option>Cosmetic Dentistry</option><option>Restorative Treatment</option><option>Dental Implants</option><option>Family Dentistry</option></select></div>
+      <div class="field"><label for="fDate">Preferred date</label><input id="fDate" type="date"></div>
+      <div class="field"><label for="fTime">Preferred time</label><input id="fTime" type="time"></div>
+      <div class="field full"><label for="fMsg">Message (optional)</label><textarea id="fMsg" placeholder="Anything we should know before your visit"></textarea></div>
+      <button class="btn" type="submit">💬 Send request on WhatsApp</button>
+      <p class="hint">Your request opens in WhatsApp so our team can confirm the appointment.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container foot-grid">
+    <div>
+      <div class="brand" style="color:#fff"><span class="mark"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M12 2c-2.2 0-3.6.8-4.8.8S5.2 2 3.6 3.2C2 4.5 1.8 7 2.3 9.4c.5 2.4 1.4 4.5 1.6 7.2.2 2.6.4 5.4 2 5.4 1.4 0 1.7-2.4 2.3-4.6.5-1.8 1.1-2.9 2.2-2.9s1.7 1.1 2.2 2.9c.6 2.2.9 4.6 2.3 4.6 1.6 0 1.8-2.8 2-5.4.2-2.7 1.1-4.8 1.6-7.2.5-2.4.3-4.9-1.3-6.2-1.6-1.2-3.1-.8-4.4-.8S14.2 2 12 2z"/></svg></span><span class="fName">Care Dental UI</span></div>
+      <p style="margin-top:14px">Gentle, family-friendly dental care.</p>
+    </div>
+    <div>
+      <h4>Quick links</h4>
+      <p class="line"><a href="#services">Services</a></p>
+      <p class="line"><a href="#about">About Us</a></p>
+      <p class="line"><a href="#team">Our Team</a></p>
+      <p class="line"><a href="#book">Book Appointment</a></p>
+    </div>
+    <div>
+      <h4>Get in touch</h4>
+      <p class="line"><a href="tel:+12125550186" class="fPhone">+1 (212) 555-0186</a></p>
+      <p class="line"><a href="mailto:care.dental@gmail.com" class="fEmail">care.dental@gmail.com</a></p>
+      <p class="line"><a href="https://wa.me/12125550186" class="fWa" target="_blank" rel="noopener">WhatsApp</a></p>
+    </div>
+  </div>
+  <div class="container bottom">
+    <span>© <span id="year"></span> <span class="fName2">Care Dental UI</span>. All rights reserved.</span>
+    <a class="admin-btn" href="/admin/">Admin Panel</a>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/12125550186" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.2 0-.3 0-.5l-.7-1.8c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 2.4 1 2.9.8 3.4.7.5 0 1.6-.7 1.9-1.3.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3z"/></svg></a>
+
+<script src="/assets/js/boot.js" defer></script>
+</body>
+</html>
